@@ -1,4 +1,4 @@
-# Python Projects for learning <img src="https://user-images.githubusercontent.com/84164009/124173698-ffef5780-da70-11eb-8532-defa8a549afd.png" width="30px" height="30px">
+# Python Projects for learning <img src="https://user-images.githubusercontent.com/84164009/124173698-ffef5780-da70-11eb-8532-defa8a549afd.png" width="40px" height="40px">
 
 Project-oriented learning is the best way to learn to code. Python is the most in-demand language today and to help you learn it, here are some of the most important Python Projects that you can explore:
 
