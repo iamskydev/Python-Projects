@@ -2,7 +2,8 @@
 
 Project-oriented learning is the best way to learn to code. Python is the most in-demand language today and to help you learn it, here are some of the most important Python Projects that you can explore:
 
-## Basic Python Projects
+<details>
+<summary>Basic Python Projects</summary>
 
 * Hangman Project in Python
 * Rock Paper Scissors Python Game
@@ -22,8 +23,10 @@ Project-oriented learning is the best way to learn to code. Python is the most i
 * Languaje Translator in Python Project
 * Python Website Blocker
 * Python Flappy Bird Game
+</details>
 
-## Intermediate Python Projects
+<details>
+<summary>Intermediate Python Projects</summary>
 
 * Python Tic Tac Toe Game
 * Calculator in Python
@@ -43,8 +46,10 @@ Project-oriented learning is the best way to learn to code. Python is the most i
 * Steganography in Python
 * Python Pacman Game
 * Python Ping Pong Game
+</details>
 
-## Advanced Python Projects 
+<details>
+<summary>Advanced Python Projects</summary> 
 
 * Speed Typing Test in Python
 * Library Management System
@@ -65,9 +70,11 @@ Project-oriented learning is the best way to learn to code. Python is the most i
 * Tank Fight Game
 * COVID-19 Spread Analysis in Python
 * Instagram Photo Downloader Python
+</details>
 
 # Summary
-In today’s article, we have discussed tons of Python projects covering all the three stages of programmers.
+
+<p>In today’s article, we have discussed tons of Python projects covering all the three stages of programmers.
 At first, we have discussed basic project ideas for beginners including number guessing, dice rolling simulator, etc.
 Then, we have discussed some more engrossing intermediate level python projects including a random password generator, Instagram bot, etc.
-In the end, we have covered some advanced projects for experts such as content aggregator, speed typing tests, etc.
+In the end, we have covered some advanced projects for experts such as content aggregator, speed typing tests, etc.<p>
