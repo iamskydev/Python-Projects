@@ -1,97 +1,110 @@
-#!/usr/bin/python3
-# Hangman game
+import random 
+import time
 
-import random
+# Lists
+fruits = ['pear', 'mango', 'apple', 'banana', 'apricot', 'pineapple','cantaloupe', 'grapefruit','jackfruit','papaya']
+superHeroes = ['hawkeye', 'robin', 'Galactus', 'thor', 'mystique', 'superman', 'deadpool', 'vision', 'sandman', 'aquaman']
+userGuesslist = []
+userGuesses = []
+playGame = True
+category = ""
+continueGame = "Y"
 
-class HangMan(object):
-    
-    # Hangman game
-    hang = []
-    hang.append(' +---+')
-    hang.append(' |   |')
-    hang.append('     |')
-    hang.append('     |')
-    hang.append('     |')
-    hang.append('     |')
-    hang.append('=======')
-    
-    man = {}
-    man[0] = [' 0   |']
-    man[1] = [' 0   |', ' |   |']
-    man[2] = [' 0   |', '/|   |']
-    man[3] = [' 0   |', '/|\\  |']
-    man[4] = [' 0   |', '/|\\  |', '/    |']
-    man[5] = [' 0   |', '/|\\  |', '/ \\  |']
-    
-    pics = []
-    
-    words = '''ant baboon badger bat bear beaver camel cat clam cobra cougar coyote
-crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama
-mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram
-rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger
-toad trout turkey turtle weasel whale wolf wombat zebra'''.split()
+# Game Info
+name = input("Enter your name: ")
+print("")
+print("Hello", name.capitalize(), "let's start playing Hangman!")
+time.sleep(1)
+print("The objective of the game is to guess the secret word chosen by the computer.")
+time.sleep(1)
+print("You can guess only one letter at a time. Don't forget to press 'enter key' after each guess.")
+time.sleep(2)
+print("Let the fun begin!")
+time.sleep(1)
+print("")
 
-    infStr='_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\'*-_-*\''
-  
-    def __init__(self, *args, **kwargs):
-        i, j = 2, 0
-        self.pics.append(self.hang[:])
-        for ls in self.man.values():
-            pic, j = self.hang[:], 0
-            for m in ls:
-                pic[i + j] = m
-                j += 1
-            self.pics.append(pic)
+while True:
+    #Choosing the Secret word
+    while True:
+        if category.upper() == 'S':
+            secretWord = random.choice(superHeroes)
+            break
+        elif category.upper() == 'F':
+            secretWord = random.choice(fruits)
+            break
+        else:
+            category = input("Please select a valid categary: F for Fruits / S for Super-Heroes; X to exit: ")
 
-    def pickWord(self):
-        return self.words[random.randint(0, len(self.words) - 1)]
-    
-    def printPic(self, idx, wordLen):
-        for line in self.pics[idx]:
-            print(line)
-            
-    def askAndEvaluate(self, word, result, missed):
-        guess = input()
-        if guess == None or len(guess) != 1 or (guess in result) or (guess in missed):
-            return None, False
-        i = 0
-        right = guess in word
-        for c in word:
-            if c == guess:
-                result[i] = c
-            i += 1
-        return guess, right
+        if category.upper() == 'X':
+            print("Bye. See you next time!")
+            playGame = False
+            break
 
-    def info(self, info):
-        ln=len(self.infStr)
-        print(self.infStr[:-3])
-        print(info)
-        print(self.infStr[3:])
-            
-    def start(self):
-        print('Welcome to Hangman !')
-        word = list(self.pickWord())
-        result = list('*' * len(word))
-        print('The word is: ', result)
-        success, i, missed = False, 0, []
-        while i < len(self.pics)-1:
-            print('Guess the word: ', end='')
-            guess,right = self.askAndEvaluate(word, result, missed)
-            if guess == None:
-                print('You\'ve already entered this character.')
-                continue
-            print(''.join(result))
-            if result == word:
-                self.info('Congratulations ! You\'ve just saved a life !')
-                success = True
+    if playGame:
+        secretWordList = list(secretWord)
+        attempts = (len(secretWord) + 2)
+
+        #Utility function to print User Guess List
+        def printGuessedLetter():
+            print("Your Secret word is: " + ''.join(userGuesslist))
+
+
+        #Adding blank lines to userGuesslist to create the blank secret word
+        for n in secretWordList:
+            userGuesslist.append('_')
+        printGuessedLetter()
+
+        print("The number of allowed guesses for this word is:", attempts)
+
+
+        #starting the game
+        while True:
+
+            print("Guess a letter:")
+            letter = input()
+
+            if letter in userGuesses:
+                print("You already guessed this letter, try something else.")
+
+            else:
+                attempts -= 1
+                userGuesses.append(letter)
+                if letter in secretWordList:
+                    print("Nice guess!")
+                    if attempts > 0:
+                        print("You have ", attempts, 'guess left!')
+                    for i in range(len(secretWordList)):
+                        if letter == secretWordList[i]:
+                            letterIndex = i
+                            userGuesslist[letterIndex] = letter.upper()
+                    printGuessedLetter()
+
+                else:
+                    print("Oops! Try again.")
+                    if attempts > 0:
+                        print("You have ", attempts, 'guess left!')
+                    printGuessedLetter()
+
+
+            #Win/loss logic for the game
+            joinedList = ''.join(userGuesslist)
+            if joinedList.upper() == secretWord.upper():
+                print("Yay! you won.")
                 break
-            if not right:
-                missed.append(guess)
-                i+=1
-            self.printPic(i, len(word))
-            print('Missed characters: ', missed)
-        
-        if not success:
-            self.info('The word was \''+''.join(word)+'\' ! You\'ve just killed a man, yo !')
+            elif attempts == 0:
+                print("Too many Guesses!, Sorry better luck next time.")
+                print("The secret word was: "+ secretWord.upper())
+                break
 
-a = HangMan().start()
+        #Play again logic for the game
+        continueGame = input("Do you want to play again? Y to continue, any other key to quit")
+        if continueGame.upper() == 'Y':
+            category = input("Please select a valid categary: F for Fruits / S for Super-Heroes")
+            userGuesslist = []
+            userGuesses = []
+            playGame = True
+        else:
+            print("Thank You for playing. See you next time!")
+            break
+    else:
+        break
