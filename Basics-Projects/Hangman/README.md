@@ -61,18 +61,18 @@ while True:
         playGame = False
         break
 ```
-<p>Here we will make use of the **while loop** and **if/elif/else conditionals** to pick the random word. The players are given an option to choose a category **(Fruits / Superheroes)** for the word they would like to guess. An option to exit the game is also provided, in case they decide not to play.<br>
-The if block of the code will be executed if the player chooses ’S’ indicating that they want to play the game with words from the **superhero** category. In this case, a word from the **superHeroes** list will be picked randomly using the **random.choice** from **random** module. The word will then be stored in the **secretWord** variable.<br>
+<p>Here we will make use of the **while loop** and **if/elif/else conditionals** to pick the random word. The players are given an option to choose a category **(Fruits / Superheroes)** for the word they would like to guess. An option to exit the game is also provided, in case they decide not to play.
+The if block of the code will be executed if the player chooses ’S’ indicating that they want to play the game with words from the **superhero** category. In this case, a word from the **superHeroes** list will be picked randomly using the **random.choice** from **random** module. The word will then be stored in the **secretWord** variable.
 The **elif (else if) block** of the code will be executed if the player chooses **F** indicating that they want to play the game with words from the **fruit** category. In this case, a word from the **fruits** list will be picked randomly using the **random.choice** from the **random** module and stored in the **secretWord** variable.</p>
 ------
-<p>If the player chooses any other letter apart from **S** / **F**, the player will be prompted to select a valid category (**S** or **F**) or **X** to exit. Note the use of **upper()** for converting the input to upper case before validating the category. Since we want to force the player to select a correct option or exit the game, we will wrap our **if/elif/else block** inside a **while** **True (forever loop) block**. We are using the keyword **break** to break out of the loop once the right option is chosen.<br>
-The **else block** will be executed if the player chooses **X** indicating a desire to quit the game. In this case, the rest of the program will not be executed and the game will end.<br>
-We are using a boolean variable **playGame** to facilitate this. A value of **True** will allow the players to continue playing the game and a value of **False** will allow them to quit the game. This variable **is initialized** with the value **True** at the beginning of the game assuming that the players invoke the program with a desire to play the game.<br>
+<p>If the player chooses any other letter apart from **S** / **F**, the player will be prompted to select a valid category (**S** or **F**) or **X** to exit. Note the use of **upper()** for converting the input to upper case before validating the category. Since we want to force the player to select a correct option or exit the game, we will wrap our **if/elif/else block** inside a **while** **True (forever loop) block**. We are using the keyword **break** to break out of the loop once the right option is chosen.
+The **else block** will be executed if the player chooses **X** indicating a desire to quit the game. In this case, the rest of the program will not be executed and the game will end.
+We are using a boolean variable **playGame** to facilitate this. A value of **True** will allow the players to continue playing the game and a value of **False** will allow them to quit the game. This variable **is initialized** with the value **True** at the beginning of the game assuming that the players invoke the program with a desire to play the game.
 If the player opts to quit the game by choosing **X**, the boolean **playGame** is set to **False** which results in bypassing the portion of the program containing the game logic and the game ends.</p>
 
 ### Step 5 : Showing blank lines for every letter in the chosen word
-<p>This step is executed once the player selects a category for the word list. After the random word is chosen by the program we want to show the player placeholders (we are using blank lines in this program) for every letter in the chosen word. **The number of placeholders indicates the length of the word to be guessed**.  Here’s how we will accomplish it:<br>
-Note that this part of the program will run only if the player chooses the right category for the word list. We also need to ensure that this part of the code is not executed if the player wants to quit the game. If the player selects a correct category and does not want to quit the game, the boolean **playGame** will have a value **True**. We check the value of this variable using an **if condition**.<br>
+<p>This step is executed once the player selects a category for the word list. After the random word is chosen by the program we want to show the player placeholders (we are using blank lines in this program) for every letter in the chosen word. **The number of placeholders indicates the length of the word to be guessed**.  Here’s how we will accomplish it:
+Note that this part of the program will run only if the player chooses the right category for the word list. We also need to ensure that this part of the code is not executed if the player wants to quit the game. If the player selects a correct category and does not want to quit the game, the boolean **playGame** will have a value **True**. We check the value of this variable using an **if condition**.
 We will first convert our **secretWord** to a list and store it in a variable called **secretWordList**.</p>
 ```py
 if playGame:
@@ -82,7 +82,7 @@ if playGame:
 ```py
 attempts = (len(secretWord) + 2)
 ```
-<p>Every time the player makes a guess the number of attempts will be reduced by 1 (**attempts -= 1**) till the player guesses the correct word or there aren’t any more attempts left (**attempts == 0**)<br>
+<p>Every time the player makes a guess the number of attempts will be reduced by 1 (**attempts -= 1**) till the player guesses the correct word or there aren’t any more attempts left (**attempts == 0**)
 Now, we will work on showing the **placeholders** for the secret word. For this, we will first create a variable called **userGuesslist**. We will initiate this variable with an **empty list**.</p>
 ```py
 userGuesslist = []
@@ -103,7 +103,7 @@ def printGuessedLetter():
 print("The number of allowed guesses for this word is:", attempts)
 ```
 ### Step 6 : Logic to ask for a letter and display it in the placeholder
-<p>Next, we will work on the logic of asking the player to enter a letter until they guess the word correctly or run out of allowed attempts. If the letter is in the chosen word, we will add the letter to the correct position in our **userGuesslist** list and then display the list.<br>
+<p>Next, we will work on the logic of asking the player to enter a letter until they guess the word correctly or run out of allowed attempts. If the letter is in the chosen word, we will add the letter to the correct position in our **userGuesslist** list and then display the list.
 We will start by creating a **while loop** to keep asking for letter input from the player.</p>
 ```py
 #starting the game
@@ -141,7 +141,7 @@ for i in range(len(secretWordList)):
 ```
 ### Step 7 : Win/Loss Logic
 
-We are almost at the end of our game. Here we will work on our **win / loss** logic.<br>
+We are almost at the end of our game. Here we will work on our **win / loss** logic.
 We will join the **userGuesslist** variable and store it in the variable **joinedList**.
 ```py
 joinedList = ‘'.join(userGuesslist)
@@ -158,8 +158,8 @@ elif attempts == 0:
 ```
 ### Step 8 : Play/Again Logic
 
-<p>Last but not least we will work on the **Play Again** logic for the game. We prompt the player to check if they want to play again and will store the response in a variable.<br>
-If the player wants to play again, we will prompt the word category thereby allowing the player to change it from their previous selection. We will also empty the ‘userGuessList’ list and the **userGuesses** list to reset them so that the new game is tracked properly. We will also set the **playGame** boolean variable to **True**.<br>
+<p>Last but not least we will work on the **Play Again** logic for the game. We prompt the player to check if they want to play again and will store the response in a variable.
+If the player wants to play again, we will prompt the word category thereby allowing the player to change it from their previous selection. We will also empty the ‘userGuessList’ list and the **userGuesses** list to reset them so that the new game is tracked properly. We will also set the **playGame** boolean variable to **True**.
 If the player chooses not to play again, we will **break out of the loop in the else block**.</p>
 ```py
 continueGame = input("Do you want to play again? Y to continue, any other key to quit")
