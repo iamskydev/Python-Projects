@@ -6,7 +6,7 @@ Project-oriented learning is the best way to learn to code. Python is the most i
 <summary>Basic Python Projects</summary>
 
 * Hangman Project in Python [Source Code](https://github.com/iamskydev/Python-Projects/tree/main/Basics-Projects/Hangman)
-* Rock Paper Scissors Python Game
+* Rock Paper Scissors Python Game [Source Code](https://github.com/iamskydev/Python-Projects/tree/main/Basics-Projects/Rock%20Paper%20Scissors)
 * Dice Rolling Simulator in Python
 * Email Slicer Project
 * Mad Libs Generator Python Game
