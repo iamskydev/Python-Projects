@@ -138,8 +138,6 @@ This part will create clickable buttons which will carry out different functions
 ## Output : 
 ![rock_paper_scissors](https://user-images.githubusercontent.com/84164009/124337546-c13cc880-db68-11eb-97f5-7bbe290d88a1.png)
 
-## Here is the complete code for the game: [Source Code](https://github.com/iamskydev/Python-Projects/blob/main/Basics-Projects/Rock%20Paper%20Scissors/rock-paper-scissors.py)
-
 # Summary
 
 <p>So, this was an easy and fun way to create a rock paper scissors game. It is customizable, as per a developer’s personal preference. Not just rock paper scissors, but many more games can be developed easily in Python using various tools and libraries available.</p>

@@ -35,13 +35,12 @@ Developing a desktop-based application using Python Tkinter is not a complex tas
 **Code**
 ```py
 #create top-level widget that represent window of application
-    root = tkinter.Tk()    
-    root.geometry('400x400')
-    root.title('Crazy_Tech Dice Simulator')
+root = tkinter.Tk()    
+root.geometry('400x400')
+root.title('Crazy_Tech Dice Simulator')
 
-    #call the mainloop to run the application
-    root.mainloop()
-
+#call the mainloop to run the application
+ root.mainloop()
 ```
 ## Step 3 : Designing a Heading and Image area
 
@@ -58,7 +57,7 @@ HeadingLabel.pack()
 ```
 Here, we will use the pack() method to arrange our widget in rows and columns. pack() method widget is used to organize widget in form of block.
 - **root** : It is the name of our main window, to which we have to add a specified widget.
-- text** : text to be displayed in the heading label.
+- **text** : text to be displayed in the heading label.
 - **fg** : font color of heading
 - **bg** : background color of heading
 - **.pack()** :used to pack the widget onto the main window(root).
@@ -66,7 +65,7 @@ Here, we will use the pack() method to arrange our widget in rows and columns. p
 ## Step 4 : Form a list of Images to be randomly displayed
 
 ```py
- dice = ['die1.png', 'die2.png', 'die3.png', 'die4.png', 'die5.png', 'die6.png'] 
+dice = ['die1.png', 'die2.png', 'die3.png', 'die4.png', 'die5.png', 'die6.png'] 
 
 #simulate a dice to generate a random number between 1 to 6. 
 DiceImage = ImageTk.PhotoImage(Image.open(random.choose(dice)))
@@ -104,7 +103,6 @@ Call the mainloop to run the application. It acts as the main function of our pr
 #call the mainloop 
 root.mainloop() 
 ```
-Here the source code the Rolling Dice Simulator Game in Python [Source Code]()
 # Summary
 
 We have successfully developed a cool application - Dice Simulator using Python. It's a lovely solution, hope you enjoyed it. Now you can simply click on a button and get your next number on dice. Thanks and cheers to python and its package Tkinter which has provided us such a function to make our work easy. As of now, we have an understanding of Python, Tkinter, and random.

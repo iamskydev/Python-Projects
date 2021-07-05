@@ -173,8 +173,6 @@ else:
     print("Thank You for playing. See you next time!")
     break
 ```
-## Here is the complete code for the game: [Source Code](https://github.com/iamskydev/Python-Projects/blob/main/Basics-Projects/Hangman/hangman.py)
-
 # Summary
 
 <p>You will write a program using the python language to create a simple console game of the word guessing game called hangman. Your program should read from a file containing a list of words, choose a random word, and allow the user to guess letters. The game should only allow the user to guess wrong 6 times before they lose, drawing more of the man each time. If the user guess the full word without guessing wrong 6 times, they win!</p>
