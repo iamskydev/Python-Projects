@@ -210,7 +210,7 @@ root.background='Gainsboro'
 root.resizable(False, False)
 
 # Adding an icon to the main window
-photo = ImageTk.PhotoImage(Image.open('Project Gurukul Icon.png'))
+photo = ImageTk.PhotoImage(Image.open('youricon.png'))
 root.iconphoto(False, photo)
 
 Label(root, font=("Comic Sans MS", 16), text='Project Gurukul Mad Libs Generator').place(x=0, y=0)
